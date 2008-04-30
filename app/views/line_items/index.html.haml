@@ -1,0 +1,30 @@
+%h1= "#{@customer.name}'s Invoice"
+%p= @invoice.description
+
+%table
+  %tr
+    %td Description
+    %td Hours
+    %td Rate
+  - @line_items.each do |li|
+    %tr
+      %td= li.description
+      %td= li.hours
+      %td= li.rate
+  %tr
+    %td Total
+    %td= @invoice.total_hours
+    %td= @invoice.total_owed
+
+- form_for :line_item, :url => customer_invoice_line_items_url(@customer, @invoice) do |f|
+  %table
+    %tr
+      %td Description
+      %td Hours
+      %td Rate
+    %tr
+      %td= f.text_field :description
+      %td= f.text_field :hours
+      %td= f.text_field :rate
+  = f.submit "Add"
+

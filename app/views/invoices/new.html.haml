@@ -1,0 +1,14 @@
+- form_for @invoice, :url => customer_invoices_url(@customer), :method => :post do |f|
+  %table
+    %tr
+      %td
+        %label{:for => 'invoice[description]'} Description
+      %td
+        = f.text_field :description
+    %tr
+      %td
+        %label{:for => 'invoice[due_at]'} Due At
+      %td
+        = f.date_select :due_at
+
+  = f.submit "Create"

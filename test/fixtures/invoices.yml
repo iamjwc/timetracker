@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  due_at: 2008-04-29 22:43:17
+  customer_id: 1
+
+two:
+  due_at: 2008-04-29 22:43:17
+  customer_id: 1

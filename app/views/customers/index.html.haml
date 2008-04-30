@@ -1,0 +1,13 @@
+%ul
+  - @customers.each do |customer|
+    %li
+      = link_to customer.name, customer_invoices_url(customer)
+      = "(#{customer.invoices.size})"
+      %ul
+        - customer.invoices.each do |invoice|
+          %li= link_to invoice.description, customer_invoice_line_items_url(customer, invoice)
+        %li= link_to "New Invoice", new_customer_invoice_url(customer)
+
+= link_to "New Customer", new_customer_url
+
+= render :partial => 'new_customer'

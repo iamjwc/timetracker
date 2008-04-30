@@ -1,0 +1,11 @@
+%h3 New Customer
+
+- form_for :customer, :action => customers_url, :method => :post do |f|
+  %table
+    %tr
+      %td
+        %label{:for => 'customer[name]'} Name
+      %td
+        = f.text_field :name
+
+  = f.submit "Create"
