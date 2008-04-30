@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Invoice
+    = stylesheet_link_tag 'main', :media => 'all'
+    = stylesheet_link_tag 'print', :media => 'print'
+    = javascript_include_tag 'jquery-1.2.3.js'
+    = javascript_include_tag 'invoice.js'
+  %body
+    #main
+      = yield

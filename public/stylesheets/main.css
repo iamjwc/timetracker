@@ -1,0 +1,48 @@
+
+body {
+  font-size: 62.5%;
+  font-family: "Helvetice Neue", Helvetica, Verdana, Sans-serif;
+  color: #333;
+
+}
+
+#main {
+  width: 660px;
+  margin: 50px auto;
+  padding: 0 30px;
+  border: 1px solid #333;
+}
+
+table#invoice {
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+table#invoice tbody td {
+  border-top: 1px solid #333;
+  padding: 0.5em;
+}
+
+table#invoice tbody input.hours {
+  width: 3em;
+}
+table#invoice tbody input.rate {
+  width: 3em;
+}
+
+table#invoice tfoot td {
+  border-top: 3px solid #333;
+}
+
+table#invoice tr a.delete {
+}
+
+tr.even { background-color: #C3FCA2; }
+tr.odd  { background-color: #FBFCA2; }
+
+table#invoice tr#total {
+  border: 0;
+}
+

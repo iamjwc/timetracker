@@ -6,7 +6,8 @@ class InvoicesController < ApplicationController
 
   def show
     @customer = Customer.find params[:customer_id]
-    @invoices = Invoice.find params[:id]
+    @invoice = Invoice.find params[:id]
+    @line_items = @invoice.line_items
   end
 
   def new

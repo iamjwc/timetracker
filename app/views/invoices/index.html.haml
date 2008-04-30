@@ -8,7 +8,7 @@
     %td Total Owed
   - @invoices.each do |invoice|
     %tr
-      %td= link_to invoice.description, customer_invoice_line_items_url(@customer, invoice)
+      %td= link_to invoice.description, customer_invoice_url(@customer, invoice)
       %td= invoice.due_at
       %td= invoice.total_hours
       %td= invoice.total_owed

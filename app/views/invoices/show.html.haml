@@ -1,0 +1,35 @@
+%h1= "#{@customer.name}'s Invoice"
+%p= @invoice.description
+
+- form_for :line_item, :url => customer_invoice_line_items_url(@customer, @invoice) do |f|
+  %table#invoice{:cellspacing => '0', :border => '0'}
+    %thead
+      %tr
+        %td.opts
+        %td Description
+        %td Hours
+        %td Rate
+        %td
+    %tbody
+      - @line_items.each do |li|
+        %tr
+          %td.opts= link_to image_tag('icons/delete.png'), customer_invoice_line_item_url(@customer, @invoice, li), { :method => :delete, :class => :delete }
+          %td= li.description
+          %td= li.hours
+          %td= li.rate
+          %td
+      %tr#add
+        %td.opts
+        %td= f.text_area :description, {:class => 'description', :rows => 2}
+        %td= f.text_field :hours, {:class => 'hours'}
+        %td= f.text_field :rate, {:class => 'rate'}
+        %td= f.submit "Add"
+      
+    %tfoot
+      %tr#total
+        %td.opts
+        %td Total
+        %td= @invoice.total_hours
+        %td= @invoice.total_owed
+        %td
+

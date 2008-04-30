@@ -1,0 +1,8 @@
+
+table#invoice tr#add {
+  display: none;
+} 
+
+td.opts {
+  display: none;
+}
