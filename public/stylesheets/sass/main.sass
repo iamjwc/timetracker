@@ -1,0 +1,153 @@
+
+!header_font = "Optima"
+!main_font = "Delicious"
+!my_info_font = "Delicious", "Adobe Garamond Pro"
+//"Helvetica Neue"
+
+
+body
+  :font
+    :size = 62.5%
+    :family = !main_font
+  :color = #333
+  :background-color = #eee
+
+#main
+  :background
+    :color = #fff
+  :width = 900px
+  :margin = 0 auto
+  :padding = 0.2em 1em
+
+
+.my_info
+  :padding 1em
+  :text-align center
+  :color #999
+  :font
+    :size 1.2em
+    :family= !my_info_font
+
+  div
+    :display inline
+    :margin 0 1em
+
+  .name
+    :font-weight bold
+    :font-size 1.2em
+
+.my_info.top
+  :margin-bottom 1em
+  :border-bottom 1px solid #ddd
+
+.my_info.bottom
+  :margin-top 1em
+  :border-top 1px solid #ddd
+
+
+#header
+  :font-family = !header_font
+  :margin 0
+  :margin-top 1em
+  :padding 0
+  :border-bottom 1px solid #333
+
+  span
+    :font
+      :size 1.75em
+      :style italic
+    :color #777
+
+  h1
+    :font
+      :style italic
+      :size 2.5em
+      //:weight normal
+    :margin 0 0.25em
+    :padding 0
+    :padding-bottom 0
+    :display inline-block
+  
+  h3
+    :font
+      :size 1.75em
+      :style italic
+      //:weight normal
+    :margin 0 0.25em
+    :padding = 0
+    :display inline-block
+
+p#description
+  :margin = 0 auto
+  :margin-bottom 1em
+  :background-color = #e1eefc
+  :font
+    :size = 1.4em
+  :color = #333
+  :padding 0.5em 1em
+  //:width 95%
+  :border-top-width 0
+  :-webkit-border-bottom-left-radius 15px
+  :-webkit-border-bottom-right-radius 15px
+  //:-webkit-border-radius 20px
+  //:-webkit-box-shadow 0 5px 5px #333
+  //:-webkit-user-modify read-write
+
+
+table#invoice
+  :margin = 0
+  :padding = 0
+  :width = 100%
+
+  .hours, .rate
+    :text-align = right
+
+  thead
+    :font
+      :size 1.4em
+    :background-color #333
+    :color #FFF
+
+    td
+      :margin 0
+      :padding 0.2em 0.5em
+
+  tbody
+    :font-size = 1.4em
+    :background-color #eee
+
+    .hours, .rate
+      :color = #888
+
+    td
+      :padding = 0.5em
+
+    .hours, .rate
+      :text-align = right
+
+      input
+        :width = 3em
+
+    textarea
+      :width = 100%
+
+  tfoot
+    :background-color = #fff7cf
+
+    td
+      :font
+        :size = 1.4em
+        :weight = bold
+      :padding = 0.5em
+      :border-top = 1px solid #d7ae56
+      :background-color = #fff7cf
+
+  tr#total
+    :border = 0
+
+tr.even
+  :background-color = #eee
+
+tr.odd
+  :background-color = #f8f8f8
+

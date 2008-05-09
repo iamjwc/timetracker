@@ -2,3 +2,4 @@
 *.sqlite3
 tmp/*
 log/*
+*.DS_Store

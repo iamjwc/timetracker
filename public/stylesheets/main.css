@@ -1,48 +1,110 @@
-
 body {
   font-size: 62.5%;
-  font-family: "Helvetice Neue", Helvetica, Verdana, Sans-serif;
-  color: #333;
-
-}
+  font-family: Delicious;
+  color: #333333;
+  background-color: #eeeeee; }
 
 #main {
-  width: 660px;
-  margin: 50px auto;
-  padding: 0 30px;
-  border: 1px solid #333;
-}
+  background-color: #ffffff;
+  width: 900px;
+  margin: 0 auto;
+  padding: 0.2em 1em; }
+
+.my_info {
+  padding: 1em;
+  text-align: center;
+  color: #999;
+  font-size: 1.2em;
+  font-family: Delicious , Adobe Garamond Pro; }
+  .my_info div {
+    display: inline;
+    margin: 0 1em; }
+  .my_info .name {
+    font-weight: bold;
+    font-size: 1.2em; }
+
+.my_info.top {
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ddd; }
+
+.my_info.bottom {
+  margin-top: 1em;
+  border-top: 1px solid #ddd; }
+
+#header {
+  font-family: Optima;
+  margin: 0;
+  margin-top: 1em;
+  padding: 0;
+  border-bottom: 1px solid #333; }
+  #header span {
+    font-size: 1.75em;
+    font-style: italic;
+    color: #777; }
+  #header h1 {
+    font-style: italic;
+    font-size: 2.5em;
+    margin: 0 0.25em;
+    padding: 0;
+    padding-bottom: 0;
+    display: inline-block; }
+  #header h3 {
+    font-size: 1.75em;
+    font-style: italic;
+    margin: 0 0.25em;
+    padding: 0;
+    display: inline-block; }
+
+p#description {
+  margin: 0 auto;
+  margin-bottom: 1em;
+  background-color: #e1eefc;
+  font-size: 1.4em;
+  color: #333333;
+  padding: 0.5em 1em;
+  border-top-width: 0;
+  -webkit-border-bottom-left-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px; }
 
 table#invoice {
-  font-size: 1.4em;
   margin: 0;
   padding: 0;
-  width: 100%;
-}
+  width: 100%; }
+  table#invoice .hours, table#invoice .rate {
+    text-align: right; }
+  table#invoice thead {
+    font-size: 1.4em;
+    background-color: #333;
+    color: #FFF; }
+    table#invoice thead td {
+      margin: 0;
+      padding: 0.2em 0.5em; }
+  table#invoice tbody {
+    font-size: 1.4em;
+    background-color: #eee; }
+    table#invoice tbody .hours, table#invoice tbody .rate {
+      color: #888888; }
+    table#invoice tbody td {
+      padding: 0.5em; }
+    table#invoice tbody .hours, table#invoice tbody .rate {
+      text-align: right; }
+      table#invoice tbody .hours input,       table#invoice tbody .rate input {
+        width: 3em; }
+    table#invoice tbody textarea {
+      width: 100%; }
+  table#invoice tfoot {
+    background-color: #fff7cf; }
+    table#invoice tfoot td {
+      font-size: 1.4em;
+      font-weight: bold;
+      padding: 0.5em;
+      border-top: 1px solid #d7ae56;
+      background-color: #fff7cf; }
+  table#invoice tr#total {
+    border: 0; }
 
-table#invoice tbody td {
-  border-top: 1px solid #333;
-  padding: 0.5em;
-}
+tr.even {
+  background-color: #eeeeee; }
 
-table#invoice tbody input.hours {
-  width: 3em;
-}
-table#invoice tbody input.rate {
-  width: 3em;
-}
-
-table#invoice tfoot td {
-  border-top: 3px solid #333;
-}
-
-table#invoice tr a.delete {
-}
-
-tr.even { background-color: #C3FCA2; }
-tr.odd  { background-color: #FBFCA2; }
-
-table#invoice tr#total {
-  border: 0;
-}
-
+tr.odd {
+  background-color: #f8f8f8; }

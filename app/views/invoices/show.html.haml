@@ -1,35 +1,46 @@
-%h1= "#{@customer.name}'s Invoice"
-%p= @invoice.description
+
+.my_info.top
+  .name Justin W. Camerer
+  .address 1401 N. Second Street &bull; Apartment F &bull; Edwardsville, IL 62025
+  .contact 618.401.8890 &bull; iamjwc@gmail.com
+
+#header
+  %span invoice for
+  %h1= @customer.name
+  - unless @invoice.due_at.nil?
+    %span due by
+    %h3= @invoice.due_at.to_date.to_s(:long_ordinal)
+%p#description= @invoice.description
 
 - form_for :line_item, :url => customer_invoice_line_items_url(@customer, @invoice) do |f|
-  %table#invoice{:cellspacing => '0', :border => '0'}
+  %table#invoice{:cellpadding => "0", :cellspacing => "0", :border => "0"}
     %thead
       %tr
-        %td.opts
         %td Description
-        %td Hours
-        %td Rate
-        %td
+        %td.hours Hours
+        %td.rate Rate
+        %td.opts
     %tbody
       - @line_items.each do |li|
         %tr
-          %td.opts= link_to image_tag('icons/delete.png'), customer_invoice_line_item_url(@customer, @invoice, li), { :method => :delete, :class => :delete }
           %td= li.description
-          %td= li.hours
-          %td= li.rate
-          %td
+          %td.hours= li.hours
+          %td.rate= number_to_currency(li.rate)
+          %td.opts= link_to image_tag('icons/delete.png'), customer_invoice_line_item_url(@customer, @invoice, li), { :method => :delete, :class => :delete }
       %tr#add
-        %td.opts
         %td= f.text_area :description, {:class => 'description', :rows => 2}
-        %td= f.text_field :hours, {:class => 'hours'}
-        %td= f.text_field :rate, {:class => 'rate'}
-        %td= f.submit "Add"
+        %td.hours= f.text_field :hours
+        %td.rate= f.text_field :rate
+        %td.opts= image_submit_tag 'icons/add.png'
       
     %tfoot
       %tr#total
-        %td.opts
         %td Total
-        %td= @invoice.total_hours
-        %td= @invoice.total_owed
-        %td
+        %td.hours= @invoice.total_hours
+        %td.rate= number_to_currency(@invoice.total_owed)
+        %td.opts
 
+.my_info.bottom
+  .name Justin W. Camerer
+  .address 1401 N. Second Street &bull; Apartment F &bull; Edwardsville, IL 62025
+  .contact 618.401.8890 &bull; iamjwc@gmail.com
