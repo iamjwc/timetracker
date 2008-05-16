@@ -5,8 +5,11 @@ ActionController::Routing::Routes.draw do |map|
     end
 
     customer.resources :todos
-    customer.resources :time_logs
 		customer.resources :projects
+    customer.resources :time_logs, :member => {
+      :start => :get,
+      :stop  => :get
+    }
   end
 
 	map.connect '/', :controller => "customers"

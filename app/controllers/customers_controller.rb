@@ -12,6 +12,7 @@ class CustomersController < ApplicationController
     end
 
     @priorities = Priority.find(:all).sort.reverse
+    @todos = @customer.todos.sort.reverse
 
     @todo = Todo.new
     @todo.customer = @customer

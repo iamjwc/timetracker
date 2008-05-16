@@ -126,16 +126,14 @@ tr.odd, li.odd {
     padding: 0.2em 0.5em; }
   #main .customer #main {
     padding: 0;
-    width: 54%;
+    width: 64%;
     float: left; }
     #main .customer #main .todos {
       background-color: #fff7cf;
       margin-bottom: 1em; }
-    #main .customer #main .timelogs {
-      background-color: #e1eefc; }
   #main .customer #secondary {
     padding: 0;
-    width: 45%;
+    width: 35%;
     float: right; }
   #main .customer br {
     clear: both; }
