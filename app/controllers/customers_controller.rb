@@ -4,7 +4,17 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customers = Customer.find params[:id]
+    if params[:id].to_s.length > 3
+      @customer = Customer.find_by_name params[:id]
+    end
+    if @customer.nil?
+      @customer = Customer.find params[:id]
+    end
+
+    @priorities = Priority.find(:all).sort.reverse
+
+    @todo = Todo.new
+    @todo.customer = @customer
   end
 
   def new

@@ -1,0 +1,41 @@
+
+#header
+  %span dashboard for
+  %h1= @customer.name 
+
+.customer
+  #main
+    %h3 ToDos
+    .todos
+      - form_for @todo, :url => customer_todos_url(@customer), :method => :post do |f|
+        %ul
+          - @customer.todos.each_with_index do |todo, i|
+            %li{:class => todo.priority}
+              - unless todo.priority.nil?
+                %span.note= todo.priority.name
+              = todo.description
+          %li 
+            = collection_select "todo", "priority_id", @priorities, :id, :name
+            = f.text_field :description
+            = f.submit "Add"
+
+    %h3 TimeLogs
+    .timelogs hey
+  
+  
+  #secondary
+    %h3 Projects
+    .projects
+      %ul
+        - @customer.projects.each do |project|
+          %li= link_to project.name, ""
+      = link_to "Add Project", new_customer_project_url(@customer)
+    
+    %h3 Invoices
+    .invoices
+      %ul
+        - @customer.invoices.each do |invoice|
+          %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(@customer, invoice)
+      = link_to "Create Invoice", new_customer_invoice_url(@customer)
+  
+  %br

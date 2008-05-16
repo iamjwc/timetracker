@@ -33,16 +33,15 @@ body {
 
 #header {
   font-family: Optima;
+  font-style: italic;
   margin: 0;
   margin-top: 1em;
   padding: 0;
   border-bottom: 1px solid #333; }
   #header span {
     font-size: 1.75em;
-    font-style: italic;
     color: #777; }
   #header h1 {
-    font-style: italic;
     font-size: 2.5em;
     margin: 0 0.25em;
     padding: 0;
@@ -50,7 +49,6 @@ body {
     display: inline-block; }
   #header h3 {
     font-size: 1.75em;
-    font-style: italic;
     margin: 0 0.25em;
     padding: 0;
     display: inline-block; }
@@ -78,7 +76,8 @@ table#invoice {
     color: #FFF; }
     table#invoice thead td {
       margin: 0;
-      padding: 0.2em 0.5em; }
+      padding: 0.2em 0.5em;
+      background-color: #333; }
   table#invoice tbody {
     font-size: 1.4em;
     background-color: #eee; }
@@ -103,8 +102,50 @@ table#invoice {
   table#invoice tr#total {
     border: 0; }
 
-tr.even {
+tr.even, li.even {
   background-color: #eeeeee; }
 
-tr.odd {
+tr.odd, li.odd {
   background-color: #f8f8f8; }
+
+#main .customer {
+  margin: 1em 0; }
+  #main .customer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.4em; }
+  #main .customer li {
+    padding: 0.5em; }
+  #main .customer h3 {
+    font-size: 1.4em;
+    font-weight: normal;
+    background-color: #333;
+    color: #FFF;
+    margin: 0;
+    padding: 0.2em 0.5em; }
+  #main .customer #main {
+    padding: 0;
+    width: 54%;
+    float: left; }
+    #main .customer #main .todos {
+      background-color: #fff7cf;
+      margin-bottom: 1em; }
+    #main .customer #main .timelogs {
+      background-color: #e1eefc; }
+  #main .customer #secondary {
+    padding: 0;
+    width: 45%;
+    float: right; }
+  #main .customer br {
+    clear: both; }
+  #main .customer form {
+    margin: 0;
+    padding: 0; }
+
+span.note {
+  -webkit-border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.8em;
+  padding: 0.2em 0.4em; }

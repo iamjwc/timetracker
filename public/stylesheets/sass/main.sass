@@ -2,6 +2,9 @@
 !header_font = "Optima"
 !main_font = "Delicious"
 !my_info_font = "Delicious", "Adobe Garamond Pro"
+!total_background = #fff7cf
+!total_border = #d7ae56
+!description_background = #e1eefc
 //"Helvetica Neue"
 
 
@@ -46,7 +49,9 @@ body
 
 
 #header
-  :font-family = !header_font
+  :font
+    :family = !header_font
+    :style italic
   :margin 0
   :margin-top 1em
   :padding 0
@@ -55,14 +60,11 @@ body
   span
     :font
       :size 1.75em
-      :style italic
     :color #777
 
   h1
     :font
-      :style italic
       :size 2.5em
-      //:weight normal
     :margin 0 0.25em
     :padding 0
     :padding-bottom 0
@@ -71,8 +73,6 @@ body
   h3
     :font
       :size 1.75em
-      :style italic
-      //:weight normal
     :margin 0 0.25em
     :padding = 0
     :display inline-block
@@ -80,7 +80,7 @@ body
 p#description
   :margin = 0 auto
   :margin-bottom 1em
-  :background-color = #e1eefc
+  :background-color = !description_background
   :font
     :size = 1.4em
   :color = #333
@@ -111,6 +111,7 @@ table#invoice
     td
       :margin 0
       :padding 0.2em 0.5em
+      :background-color #333
 
   tbody
     :font-size = 1.4em
@@ -132,22 +133,80 @@ table#invoice
       :width = 100%
 
   tfoot
-    :background-color = #fff7cf
+    :background-color = !total_background
 
     td
       :font
         :size = 1.4em
         :weight = bold
       :padding = 0.5em
-      :border-top = 1px solid #d7ae56
-      :background-color = #fff7cf
+      :border-top = 1px solid !total_border
+      :background-color = !total_background
 
   tr#total
     :border = 0
 
-tr.even
+tr.even, li.even
   :background-color = #eee
 
-tr.odd
+tr.odd, li.odd
   :background-color = #f8f8f8
+
+#main
+  .customer
+    :margin 1em 0
+
+    ul
+      :margin 0
+      :padding 0
+      :list-style none
+      :font-size = 1.4em
+
+    li
+      :padding = 0.5em
+
+    h3
+      :font
+        :size 1.4em
+        :weight normal
+      :background-color #333
+      :color #FFF
+      :margin 0
+      :padding 0.2em 0.5em
+
+    #main
+      :padding 0
+      :width 54%
+      :float left
+    
+      .todos
+        :background-color= !total_background
+        :margin-bottom 1em
+    
+      .timelogs
+        :background-color= !description_background
+    
+    #secondary
+      :padding 0
+      :width 45%
+      :float right
+    
+    br
+      :clear both
+    
+    form
+      :margin 0
+      :padding 0
+    
+span.note
+  :-webkit-border-radius 4px
+  :background-color #333
+  :color #fff
+  :font-size 0.8em
+  :padding 0.2em 0.4em
+
+
+
+
+
 

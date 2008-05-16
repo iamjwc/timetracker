@@ -1,13 +1,39 @@
-%ul
-  - @customers.each do |customer|
-    %li
-      = link_to customer.name, customer_invoices_url(customer)
-      = "(#{customer.invoices.size})"
-      %ul
-        - customer.invoices.each do |invoice|
-          %li= link_to invoice.description, customer_invoice_line_items_url(customer, invoice)
-        %li= link_to "New Invoice", new_customer_invoice_url(customer)
 
-= link_to "New Customer", new_customer_url
+- @customers.each do |customer|
+  %div.customer
+    %h2= customer.name
 
+    #main
+      .todos
+        %h3 ToDos
+        %ul
+          - customer.todos.each do |todo|
+            %li{:class => todo.priority}= todo.description
+
+        - form_for :todo, :url => "customers/#{customer.id}/todos", :method => :post do |f|
+          %label{:for => 'todo[description]'} Description
+          = f.text_field :description
+
+          = f.submit "Add"
+      .timelogs hey
+
+
+    #secondary
+      .projects
+        %h3 Projects
+        %ul
+          - customer.projects.each do |project|
+            %li= link_to project.name, ""
+        = link_to "Add Project", new_customer_project_url(customer)
+      
+      .invoices
+        %h3 Invoices
+        %ul
+          - customer.invoices.each do |invoice|
+            %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(customer, invoice)
+        = link_to "New Invoice", new_customer_invoice_url(customer)
+    
+    %br
+    
+    
 = render :partial => 'new_customer'

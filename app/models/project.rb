@@ -1,2 +1,3 @@
-class Projects < ActiveRecord::Base
+class Project < ActiveRecord::Base
+  belongs_to :customer
 end

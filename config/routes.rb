@@ -4,9 +4,9 @@ ActionController::Routing::Routes.draw do |map|
       invoice.resources :line_items
     end
 
-		customer.resources :projects do |project|
-      project.resources :todos
-		end
+    customer.resources :todos
+    customer.resources :time_logs
+		customer.resources :projects
   end
 
 	map.connect '/', :controller => "customers"
