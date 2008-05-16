@@ -3,4 +3,13 @@ class Customer < ActiveRecord::Base
   has_many :projects
   has_many :time_logs
   has_many :todos
+
+  def start_working
+    self.time_logs << TimeLog.new(:started_at => Time.now)
+  end
+
+  def stop_working
+    time_log = TimeLog.find_open_time_log_for_customer(self)
+    time_log.update_attribute(:ended_at => Time.now)
+  end
 end

@@ -1,7 +1,6 @@
 class TimeLogsController < ApplicationController
   def start
-    @customer = Customer.find
-    @customer.time_logs << TimeLogs.new
+    @customer = Customer.find params[:customer_id]
   end
 
   def stop
