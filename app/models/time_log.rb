@@ -5,7 +5,7 @@ class TimeLog < ActiveRecord::Base
   def self.find_open_time_log_for_customer(customer)
     TimeLog.find(
       :first,
-      :conditions => {:customer_id => customer_id, :ended_at => nil},
+      :conditions => {:customer_id => customer.id, :ended_at => nil},
       :order => "started_at DESC"
     )
   end

@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
 
     customer.resources :todos
 		customer.resources :projects
-    customer.resources :time_logs, :member => {
+    customer.resources :time_logs, :collection => {
       :start => :get,
       :stop  => :get
     }

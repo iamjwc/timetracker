@@ -22,7 +22,11 @@
   #secondary
     %h3 Time
     .timelogs
-      = link_to "Start Working", "#"
+      - if @customer.current_time_log
+        = h @customer.current_time_log
+        = link_to "Stop Working", "/customers/#{@customer.id}/time_logs/start"
+      - else
+        = link_to "Start Working", "/customers/#{@customer.id}/time_logs/start"
 
     %h3 Invoices
     .invoices

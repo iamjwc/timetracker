@@ -9,7 +9,11 @@ class Customer < ActiveRecord::Base
   end
 
   def stop_working
-    time_log = TimeLog.find_open_time_log_for_customer(self)
+    time_log = self.current_time_log
     time_log.update_attribute(:ended_at => Time.now)
+  end
+
+  def current_time_log
+    TimeLog.find_open_time_log_for_customer(self)
   end
 end
