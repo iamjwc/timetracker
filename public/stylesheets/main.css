@@ -115,6 +115,11 @@ tr.odd, li.odd {
     padding: 0;
     list-style: none;
     font-size: 1.4em; }
+  #main .customer .todos ul:hover {
+    color: #AAA; }
+  #main .customer .todos li:hover {
+    color: #333;
+    background-color: #fff; }
   #main .customer li {
     padding: 0.5em; }
   #main .customer h3 {
@@ -135,6 +140,48 @@ tr.odd, li.odd {
     padding: 0;
     width: 35%;
     float: right; }
+    #main .customer #secondary div.new {
+      padding: 1em; }
+      #main .customer #secondary div.new form {
+        margin: 0;
+        padding: 0;
+        font-size: 1em; }
+        #main .customer #secondary div.new form label {
+          margin: 0;
+          padding: 0;
+          display: block;
+          width: 100%; }
+        #main .customer #secondary div.new form input {
+          margin: 0;
+          margin-bottom: 0.5em;
+          padding: 0;
+          display: block;
+          width: 100%; }
+        #main .customer #secondary div.new form textarea {
+          margin: 0;
+          margin-bottom: 0.5em;
+          padding: 0;
+          width: 100%; }
+        #main .customer #secondary div.new form div {
+          text-align: right; }
+          #main .customer #secondary div.new form div input {
+            width: auto;
+            display: inline; }
+    #main .customer #secondary .timelogs .button {
+      padding: 1em; }
+      #main .customer #secondary .timelogs .button a {
+        -webkit-border-radius: 20px;
+        display: block;
+        width: 100%;
+        padding: 0.5em 0;
+        text-align: center;
+        font-size: 3em;
+        color: #fff;
+        text-decoration: none; }
+    #main .customer #secondary .timelogs .start a {
+      background-color: #0f0; }
+    #main .customer #secondary .timelogs .stop a {
+      background-color: #f00; }
   #main .customer br {
     clear: both; }
   #main .customer form {

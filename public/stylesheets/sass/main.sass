@@ -162,6 +162,12 @@ tr.odd, li.odd
       :list-style none
       :font-size = 1.4em
 
+    .todos ul:hover
+      :color #AAA
+    .todos li:hover
+      :color #333
+      :background-color #fff
+
     li
       :padding = 0.5em
 
@@ -189,7 +195,60 @@ tr.odd, li.odd
       :width 35%
       :float right
 
+      div.new
+        :padding 1em
+
+        form
+          :margin 0
+          :padding 0
+          :font-size 1em
+
+          label
+            :margin 0
+            :padding 0
+            :display block
+            :width 100%
+
+          input
+            :margin 0
+            :margin-bottom 0.5em
+            :padding 0
+            :display block
+            :width 100%
+
+          textarea
+            :margin 0
+            :margin-bottom 0.5em
+            :padding 0
+            :width 100%
+
+          div
+            :text-align right
+
+            input
+              :width auto
+              :display inline
+
       .timelogs
+        .button
+          :padding 1em
+
+          a
+            :-webkit-border-radius 20px
+            :display block
+            :width 100%
+            :padding 0.5em 0
+            :text-align center
+            :font-size 3em
+            :color #fff
+            :text-decoration none
+
+        .start a
+          :background-color #0f0
+        .stop a
+          :background-color #f00
+
+            
 
     
     br

@@ -10,7 +10,7 @@ class Customer < ActiveRecord::Base
 
   def stop_working
     time_log = self.current_time_log
-    time_log.update_attribute(:ended_at => Time.now)
+    time_log.update_attributes(:ended_at => Time.now)
   end
 
   def current_time_log
