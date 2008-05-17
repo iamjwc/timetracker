@@ -3,98 +3,13 @@
   %span dashboard for
   %h1= @customer.name 
 
-.customer
+.dashboard
   #main
-    %h3 ToDos
-    .todos
-      %ul
-        - @todos.each_with_index do |todo, i|
-          %li{:class => todo.priority}
-            - unless todo.priority.nil?
-              %span.note= todo.priority.name
-            = todo.description
-      .more
-        - form_for @todo, :url => customer_todos_url(@customer), :method => :post do |f|
-          = collection_select "todo", "priority_id", @priorities, :id, :name
-          = f.text_field :description
-          = f.submit "add"
+    = render :partial => "dashboard/todos", :locals => {:customer => @customer, :todos => @todos, :priorities => @priorities}
   
   #secondary
-    %h3 TimeClock
-    .timelogs
-      - if @customer.current_time_log
-        .button.stop= link_to "#{@customer.current_time_log.total_time} minutes", "/customers/#{@customer.id}/time_logs/stop", :method => :put
-        %ul
-          - @customer.current_time_log.time_bits.each do |time_bit|
-            %li= time_bit.description
-      - else
-        .button.start= link_to "start the clock", "/customers/#{@customer.id}/time_logs/start"
-      .more
-        .menu
-          = link_to "show all&hellip;", customer_time_logs_url(@customer)
-        -if @customer.current_time_log
-          .new
-            -form_for :time_bit, :url => customer_time_log_time_bits_url(@customer, @customer.current_time_log), :method => :put do |f|
-              %label{:for => "time_bit[description]"} Currently working on?
-              = f.text_field :description
+    = render :partial => "dashboard/time_clock", :locals => {:customer => @customer, :time_log => @customer.current_time_log}
+    = render :partial => "dashboard/invoices",   :locals => {:customer => @customer, :invoices => @customer.invoices}
+    = render :partial => "dashboard/projects",   :locals => {:customer => @customer, :projects => @customer.projects}
 
-              .actions
-                = f.submit "add"
-          
-
-    %h3 Invoices
-    .invoices
-      %ul
-        - if @customer.invoices.empty?
-          %li
-            %em No invoices
-        - else
-          - @customer.invoices.each do |invoice|
-            %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(@customer, invoice)
-      .more 
-        .menu
-          %a.open{:href => "#"} create blank
-          = " &#8208; "
-          = link_to "show all&hellip;", customer_invoices_url(@customer)
-        .new
-          - form_for :invoice, :url => customer_invoices_url(@customer) do |f|
-            %label{:for => "invoice[due_at]"} Due On
-            = date_select("invoice", "due_at")
-    
-            %label{:for => "invoice[description]"} Description
-            = f.text_area :description, {:rows => 5}
-            
-            .actions
-              = f.submit "create"
-              %em &#8208; or &#8208;
-              %a.cancel{:href => "#"} cancel
-
-    %h3 Projects
-    .projects
-      %ul
-        - if @customer.projects.empty?
-          %li
-            %em No projects
-        - else
-          - @customer.projects.each do |project|
-            %li= link_to project.name, customer_project_url(@customer, project)
-      
-      .more
-        .menu
-          %a.open{:href => "#"} create
-        .new
-          - form_for :project, :url => customer_projects_url(@customer) do |f|
-    
-            %label{:for => "project[name]"} Name
-            = f.text_field :name
-    
-            %label{:for => "project[description]"} Description
-            = f.text_area :description, {:rows => 5}
-            
-            %div.actions
-              = f.submit "create"
-              %em &#8208; or &#8208;
-              %a.cancel{:href => "#"} cancel
-
-  
   %br

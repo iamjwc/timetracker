@@ -1,0 +1,22 @@
+- render :layout => "dashboard/subheader", :locals => {:title => "TimeLogs"} do; end
+.timelogs
+  %table
+    %thead
+      %tr
+        %td Description
+        %td Date
+        %td Time
+    - time_logs.each do |time_log|
+      %tr
+        %td
+          %p= time_log.description
+          %ul
+            - time_log.time_bits.each do |time_bit|
+              %li= time_bit.description
+        %td= time_log.started_at.to_date.to_s(:long_ordinal)
+        %td= time_log.total_time
+    %thead
+      %tr
+        %td Total 
+        %td &nbsp;
+        %td= time_logs.inject(0) {|t, i| t += i.total_time }

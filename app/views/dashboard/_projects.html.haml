@@ -1,0 +1,26 @@
+- render :layout => "dashboard/subheader", :locals => {:title => "Projects"} do; end
+.projects
+  %ul
+    - if projects.empty?
+      %li
+        %em No projects
+    - else
+      - projects.each do |project|
+        %li= link_to project.name, customer_project_url(customer, project)
+  
+  .more
+    - render :layout => "dashboard/submenu" do
+      %a.open{:href => "#"} create
+    .new
+      - form_for :project, :url => customer_projects_url(customer) do |f|
+
+        %label{:for => "project[name]"} Name
+        = f.text_field :name
+
+        %label{:for => "project[description]"} Description
+        = f.text_area :description, {:rows => 5}
+        
+        %div.actions
+          = f.submit "create"
+          %em &#8208; or &#8208;
+          %a.cancel{:href => "#"} cancel

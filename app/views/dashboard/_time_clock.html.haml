@@ -1,0 +1,19 @@
+- render :layout => "dashboard/subheader", :locals => {:title => "TimeClock"} do
+  = link_to "work history&hellip;", customer_time_logs_url(customer)
+.timeclock
+  - if time_log.nil?
+    .button.start= link_to "start the clock", "/customers/#{customer.id}/time_logs/start"
+  - else
+    .button.stop= link_to "#{time_log.total_time} minutes", "/customers/#{customer.id}/time_logs/stop", :method => :put
+    %ul
+      - time_log.time_bits.each do |time_bit|
+        %li= time_bit.description
+    .more
+        
+      .new
+        -form_for :time_bit, :url => customer_time_log_time_bits_url(customer, time_log), :method => :put do |f|
+          %label{:for => "time_bit[description]"} Currently working on?
+          = f.text_field :description
+
+          .actions
+            = f.submit "add"

@@ -23,7 +23,7 @@ a
 a:hover
   :text-decoration underline
 
-#main
+#page
   :background
     :color = #fff
   :width = 900px
@@ -160,8 +160,8 @@ tr.even, li.even
 tr.odd, li.odd
   :background-color = #f8f8f8
 
-#main
-  .customer
+#page
+  .dashboard
     :margin 1em 0
 
     ul
@@ -178,14 +178,29 @@ tr.odd, li.odd
     li
       :padding = 0.5em
 
-    h3
-      :font
-        :size 1.4em
-        :weight normal
+    
+    .subheader
       :background-color #333
-      :color #FFF
-      :margin 0
+      :color #ccc
       :padding 0.2em 0.5em
+
+      h3
+        :color #fff
+        :font
+          :size 1.4em
+          :weight normal
+        :display inline
+        :margin 0
+        :float left
+
+      a
+        :color #ccc
+        :float right
+        :font
+          :size 1.2em
+          :weight normal
+      br
+        :clear both
 
     #main
       :padding 0
@@ -268,7 +283,7 @@ tr.odd, li.odd
               :width auto
               :display inline
 
-      .timelogs
+      .timeclock
         .button
           :padding 1em
 
@@ -286,7 +301,6 @@ tr.odd, li.odd
           :background-color #0f0
         .stop a
           :background-color #f00
-            
 
     
     br

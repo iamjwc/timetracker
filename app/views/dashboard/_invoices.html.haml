@@ -1,0 +1,26 @@
+- render :layout => "dashboard/subheader", :locals => {:title => "Invoices"} do
+  = link_to "show all&hellip;", customer_invoices_url(customer)
+
+.invoices
+  %ul
+    - if invoices.empty?
+      %li
+        %em No invoices
+    - else
+      - invoices.each do |invoice|
+        %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(invoice.customer, invoice)
+  .more 
+    - render :layout => "dashboard/submenu" do
+      %a.open{:href => "#"} create blank
+    .new
+      - form_for :invoice, :url => customer_invoices_url(customer) do |f|
+        %label{:for => "invoice[due_at]"} Due On
+        = date_select("invoice", "due_at")
+
+        %label{:for => "invoice[description]"} Description
+        = f.text_area :description, {:rows => 5}
+        
+        .actions
+          = f.submit "create"
+          %em &#8208; or &#8208;
+          %a.cancel{:href => "#"} cancel

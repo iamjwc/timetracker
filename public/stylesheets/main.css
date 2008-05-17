@@ -11,7 +11,7 @@ a {
 a:hover {
   text-decoration: underline; }
 
-#main {
+#page {
   background-color: #ffffff;
   width: 900px;
   margin: 0 auto;
@@ -115,33 +115,44 @@ tr.even, li.even {
 tr.odd, li.odd {
   background-color: #f8f8f8; }
 
-#main .customer {
+#page .dashboard {
   margin: 1em 0; }
-  #main .customer ul {
+  #page .dashboard ul {
     margin: 0;
     padding: 0;
     list-style: none;
     font-size: 1.4em; }
-  #main .customer .todos ul:hover {
+  #page .dashboard .todos ul:hover {
     color: #AAA; }
-  #main .customer .todos li:hover {
+  #page .dashboard .todos li:hover {
     color: #333; }
-  #main .customer li {
+  #page .dashboard li {
     padding: 0.5em; }
-  #main .customer h3 {
-    font-size: 1.4em;
-    font-weight: normal;
+  #page .dashboard .subheader {
     background-color: #333;
-    color: #FFF;
-    margin: 0;
+    color: #ccc;
     padding: 0.2em 0.5em; }
-  #main .customer #main {
+    #page .dashboard .subheader h3 {
+      color: #fff;
+      font-size: 1.4em;
+      font-weight: normal;
+      display: inline;
+      margin: 0;
+      float: left; }
+    #page .dashboard .subheader a {
+      color: #ccc;
+      float: right;
+      font-size: 1.2em;
+      font-weight: normal; }
+    #page .dashboard .subheader br {
+      clear: both; }
+  #page .dashboard #main {
     padding: 0;
     width: 64%;
     float: left; }
-    #main .customer #main .todos {
+    #page .dashboard #main .todos {
       margin-bottom: 1em; }
-    #main .customer #main div.more {
+    #page .dashboard #main div.more {
       font-size: 1.25em;
       background-color: #fff7cf;
       border-top: 1px solid #333;
@@ -150,16 +161,16 @@ tr.odd, li.odd {
       margin-bottom: 1em;
       -webkit-border-bottom-right-radius: 5px;
       -webkit-border-bottom-left-radius: 5px; }
-      #main .customer #main div.more a {
+      #page .dashboard #main div.more a {
         font-family: Optima;
         font-size: 0.9em;
         font-weight: bold;
         color: #2244aa; }
-  #main .customer #secondary {
+  #page .dashboard #secondary {
     padding: 0;
     width: 35%;
     float: right; }
-    #main .customer #secondary div.more {
+    #page .dashboard #secondary div.more {
       text-align: right;
       font-size: 1.25em;
       background-color: #fff7cf;
@@ -169,38 +180,38 @@ tr.odd, li.odd {
       margin-bottom: 1em;
       -webkit-border-bottom-right-radius: 5px;
       -webkit-border-bottom-left-radius: 5px; }
-      #main .customer #secondary div.more a {
+      #page .dashboard #secondary div.more a {
         font-family: Optima;
         font-size: 0.9em;
         font-weight: bold;
         color: #2244aa; }
-    #main .customer #secondary div.new form {
+    #page .dashboard #secondary div.new form {
       margin: 0;
       padding: 0;
       font-size: 1em; }
-      #main .customer #secondary div.new form label {
+      #page .dashboard #secondary div.new form label {
         text-align: left;
         margin: 0;
         padding: 0;
         display: block;
         width: 100%; }
-      #main .customer #secondary div.new form input {
+      #page .dashboard #secondary div.new form input {
         margin: 0;
         margin-bottom: 0.5em;
         padding: 0;
         display: block;
         width: 100%; }
-      #main .customer #secondary div.new form textarea {
+      #page .dashboard #secondary div.new form textarea {
         margin: 0;
         margin-bottom: 0.5em;
         padding: 0;
         width: 100%; }
-      #main .customer #secondary div.new form div input {
+      #page .dashboard #secondary div.new form div input {
         width: auto;
         display: inline; }
-    #main .customer #secondary .timelogs .button {
+    #page .dashboard #secondary .timeclock .button {
       padding: 1em; }
-      #main .customer #secondary .timelogs .button a {
+      #page .dashboard #secondary .timeclock .button a {
         -webkit-border-radius: 20px;
         display: block;
         width: 100%;
@@ -209,13 +220,13 @@ tr.odd, li.odd {
         font-size: 3em;
         color: #fff;
         text-decoration: none; }
-    #main .customer #secondary .timelogs .start a {
+    #page .dashboard #secondary .timeclock .start a {
       background-color: #0f0; }
-    #main .customer #secondary .timelogs .stop a {
+    #page .dashboard #secondary .timeclock .stop a {
       background-color: #f00; }
-  #main .customer br {
+  #page .dashboard br {
     clear: both; }
-  #main .customer form {
+  #page .dashboard form {
     margin: 0;
     padding: 0; }
 
