@@ -7,17 +7,17 @@
   #main
     %h3 ToDos
     .todos
-      - form_for @todo, :url => customer_todos_url(@customer), :method => :post do |f|
-        %ul
-          - @todos.each_with_index do |todo, i|
-            %li{:class => todo.priority}
-              - unless todo.priority.nil?
-                %span.note= todo.priority.name
-              = todo.description
-          %li 
-            = collection_select "todo", "priority_id", @priorities, :id, :name
-            = f.text_field :description
-            = f.submit "Add"
+      %ul
+        - @todos.each_with_index do |todo, i|
+          %li{:class => todo.priority}
+            - unless todo.priority.nil?
+              %span.note= todo.priority.name
+            = todo.description
+      .more
+        - form_for @todo, :url => customer_todos_url(@customer), :method => :post do |f|
+          = collection_select "todo", "priority_id", @priorities, :id, :name
+          = f.text_field :description
+          = f.submit "Add"
   
   #secondary
     %h3 Time
@@ -26,39 +26,48 @@
         .button.stop= link_to "#{@customer.current_time_log.total_time} minutes", "/customers/#{@customer.id}/time_logs/stop"
       - else
         .button.start= link_to "start working", "/customers/#{@customer.id}/time_logs/start"
-      = link_to "Show All Time Logs", customer_time_logs_url(@customer)
+      .more
+        = link_to "show all", customer_time_logs_url(@customer)
 
     %h3 Invoices
     .invoices
       %ul
-        %li
-          %em No invoices
-        - @customer.invoices.each do |invoice|
-          %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(@customer, invoice)
-      = link_to "Create Invoice", new_customer_invoice_url(@customer)
+        - if @customer.invoices.empty?
+          %li
+            %em No invoices
+        - else
+          - @customer.invoices.each do |invoice|
+            %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(@customer, invoice)
+      .more 
+        = link_to "add", new_customer_invoice_url(@customer)
+        = " &#8208; "
+        = link_to "show all", customer_invoices_url(@customer)
 
     %h3 Projects
     .projects
       %ul
-        %li
-          %em No projects
-        - @customer.projects.each do |project|
-          %li= link_to project.name, customer_project_url(@customer, project)
+        - if @customer.projects.empty?
+          %li
+            %em No projects
+        - else
+          - @customer.projects.each do |project|
+            %li= link_to project.name, customer_project_url(@customer, project)
       
-      %a.add{:href => "#"} Add
-      .new
-        - form_for :project, :url => customer_projects_url(@customer) do |f|
-  
-          %label{:for => "project[name]"} Name
-          = f.text_field :name
-  
-          %label{:for => "project[description]"} Description
-          = f.text_area :description, {:rows => 5}
-          
-          %div
-            = f.submit "Add"
-            %em &#8208;or&#8208;
-            %a.cancel{:href => "#"} x
+      .more
+        %a.add{:href => "#"} add
+        .new
+          - form_for :project, :url => customer_projects_url(@customer) do |f|
+    
+            %label{:for => "project[name]"} Name
+            = f.text_field :name
+    
+            %label{:for => "project[description]"} Description
+            = f.text_area :description, {:rows => 5}
+            
+            %div.actions
+              = f.submit "add"
+              %em &#8208; or &#8208;
+              %a.cancel{:href => "#"} cancel
 
   
   %br

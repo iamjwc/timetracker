@@ -4,6 +4,9 @@ body {
   color: #333333;
   background-color: #eeeeee; }
 
+a {
+  color: #2244aa; }
+
 #main {
   background-color: #ffffff;
   width: 900px;
@@ -118,8 +121,7 @@ tr.odd, li.odd {
   #main .customer .todos ul:hover {
     color: #AAA; }
   #main .customer .todos li:hover {
-    color: #333;
-    background-color: #fff; }
+    color: #333; }
   #main .customer li {
     padding: 0.5em; }
   #main .customer h3 {
@@ -134,39 +136,54 @@ tr.odd, li.odd {
     width: 64%;
     float: left; }
     #main .customer #main .todos {
-      background-color: #fff7cf;
       margin-bottom: 1em; }
+    #main .customer #main div.more {
+      font-size: 1.25em;
+      background-color: #fff7cf;
+      border-top: 1px solid #333;
+      padding: 0.5em;
+      padding-right: 0.75em;
+      margin-bottom: 1em;
+      -webkit-border-bottom-right-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px; }
   #main .customer #secondary {
     padding: 0;
     width: 35%;
     float: right; }
-    #main .customer #secondary div.new {
-      padding: 1em; }
-      #main .customer #secondary div.new form {
+    #main .customer #secondary div.more {
+      text-align: right;
+      font-size: 1.25em;
+      background-color: #fff7cf;
+      border-top: 1px solid #333;
+      padding: 0.5em;
+      padding-right: 0.75em;
+      margin-bottom: 1em;
+      -webkit-border-bottom-right-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px; }
+    #main .customer #secondary div.new form {
+      margin: 0;
+      padding: 0;
+      font-size: 1em; }
+      #main .customer #secondary div.new form label {
+        text-align: left;
         margin: 0;
         padding: 0;
-        font-size: 1em; }
-        #main .customer #secondary div.new form label {
-          margin: 0;
-          padding: 0;
-          display: block;
-          width: 100%; }
-        #main .customer #secondary div.new form input {
-          margin: 0;
-          margin-bottom: 0.5em;
-          padding: 0;
-          display: block;
-          width: 100%; }
-        #main .customer #secondary div.new form textarea {
-          margin: 0;
-          margin-bottom: 0.5em;
-          padding: 0;
-          width: 100%; }
-        #main .customer #secondary div.new form div {
-          text-align: right; }
-          #main .customer #secondary div.new form div input {
-            width: auto;
-            display: inline; }
+        display: block;
+        width: 100%; }
+      #main .customer #secondary div.new form input {
+        margin: 0;
+        margin-bottom: 0.5em;
+        padding: 0;
+        display: block;
+        width: 100%; }
+      #main .customer #secondary div.new form textarea {
+        margin: 0;
+        margin-bottom: 0.5em;
+        padding: 0;
+        width: 100%; }
+      #main .customer #secondary div.new form div input {
+        width: auto;
+        display: inline; }
     #main .customer #secondary .timelogs .button {
       padding: 1em; }
       #main .customer #secondary .timelogs .button a {

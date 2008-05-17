@@ -5,6 +5,7 @@
 !total_background = #fff7cf
 !total_border = #d7ae56
 !description_background = #e1eefc
+!link_color = #24A
 //"Helvetica Neue"
 
 
@@ -14,6 +15,9 @@ body
     :family = !main_font
   :color = #333
   :background-color = #eee
+
+a
+  :color= !link_color
 
 #main
   :background
@@ -166,7 +170,6 @@ tr.odd, li.odd
       :color #AAA
     .todos li:hover
       :color #333
-      :background-color #fff
 
     li
       :padding = 0.5em
@@ -186,8 +189,17 @@ tr.odd, li.odd
       :float left
     
       .todos
-        :background-color= !total_background
         :margin-bottom 1em
+
+      div.more
+        :font-size 1.25em
+        :background-color= !total_background
+        :border-top 1px solid #333
+        :padding 0.5em
+        :padding-right 0.75em
+        :margin-bottom 1em
+        :-webkit-border-bottom-right-radius 5px
+        :-webkit-border-bottom-left-radius 5px
     
     
     #secondary
@@ -195,15 +207,25 @@ tr.odd, li.odd
       :width 35%
       :float right
 
-      div.new
-        :padding 1em
+      div.more
+        :text-align right
+        :font-size 1.25em
+        :background-color= !total_background
+        :border-top 1px solid #333
+        :padding 0.5em
+        :padding-right 0.75em
+        :margin-bottom 1em
+        :-webkit-border-bottom-right-radius 5px
+        :-webkit-border-bottom-left-radius 5px
 
+      div.new
         form
           :margin 0
           :padding 0
           :font-size 1em
 
           label
+            :text-align left
             :margin 0
             :padding 0
             :display block
@@ -223,7 +245,6 @@ tr.odd, li.odd
             :width 100%
 
           div
-            :text-align right
 
             input
               :width auto
@@ -247,7 +268,6 @@ tr.odd, li.odd
           :background-color #0f0
         .stop a
           :background-color #f00
-
             
 
     
