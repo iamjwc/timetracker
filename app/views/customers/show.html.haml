@@ -17,17 +17,30 @@
         - form_for @todo, :url => customer_todos_url(@customer), :method => :post do |f|
           = collection_select "todo", "priority_id", @priorities, :id, :name
           = f.text_field :description
-          = f.submit "Add"
+          = f.submit "add"
   
   #secondary
-    %h3 Time
+    %h3 TimeClock
     .timelogs
       - if @customer.current_time_log
-        .button.stop= link_to "#{@customer.current_time_log.total_time} minutes", "/customers/#{@customer.id}/time_logs/stop"
+        .button.stop= link_to "#{@customer.current_time_log.total_time} minutes", "/customers/#{@customer.id}/time_logs/stop", :method => :put
+        %ul
+          - @customer.current_time_log.time_bits.each do |time_bit|
+            %li= time_bit.description
       - else
-        .button.start= link_to "start working", "/customers/#{@customer.id}/time_logs/start"
+        .button.start= link_to "start the clock", "/customers/#{@customer.id}/time_logs/start"
       .more
-        = link_to "show all", customer_time_logs_url(@customer)
+        .menu
+          = link_to "show all&hellip;", customer_time_logs_url(@customer)
+        -if @customer.current_time_log
+          .new
+            -form_for :time_bit, :url => customer_time_log_time_bits_url(@customer, @customer.current_time_log), :method => :put do |f|
+              %label{:for => "time_bit[description]"} Currently working on?
+              = f.text_field :description
+
+              .actions
+                = f.submit "add"
+          
 
     %h3 Invoices
     .invoices
@@ -39,9 +52,22 @@
           - @customer.invoices.each do |invoice|
             %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(@customer, invoice)
       .more 
-        = link_to "add", new_customer_invoice_url(@customer)
-        = " &#8208; "
-        = link_to "show all", customer_invoices_url(@customer)
+        .menu
+          %a.open{:href => "#"} create blank
+          = " &#8208; "
+          = link_to "show all&hellip;", customer_invoices_url(@customer)
+        .new
+          - form_for :invoice, :url => customer_invoices_url(@customer) do |f|
+            %label{:for => "invoice[due_at]"} Due On
+            = date_select("invoice", "due_at")
+    
+            %label{:for => "invoice[description]"} Description
+            = f.text_area :description, {:rows => 5}
+            
+            .actions
+              = f.submit "create"
+              %em &#8208; or &#8208;
+              %a.cancel{:href => "#"} cancel
 
     %h3 Projects
     .projects
@@ -54,7 +80,8 @@
             %li= link_to project.name, customer_project_url(@customer, project)
       
       .more
-        %a.add{:href => "#"} add
+        .menu
+          %a.open{:href => "#"} create
         .new
           - form_for :project, :url => customer_projects_url(@customer) do |f|
     
@@ -65,7 +92,7 @@
             = f.text_area :description, {:rows => 5}
             
             %div.actions
-              = f.submit "add"
+              = f.submit "create"
               %em &#8208; or &#8208;
               %a.cancel{:href => "#"} cancel
 

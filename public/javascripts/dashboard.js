@@ -7,14 +7,25 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('.projects .new').hide();
-  $('.projects a.add').click(function() {
-    $('.projects a.add').hide();
+  $('.projects .menu .open').click(function() {
+    $('.projects .menu').hide();
     $('.projects .new').show();
   });
 
-  $('.projects .new a.cancel').click(function() {
-    $('.projects a.add').show();
+  $('.projects .new .cancel').click(function() {
+    $('.projects .menu').show();
     $('.projects .new').hide();
+  });
+
+  $('.invoices .new').hide();
+  $('.invoices .menu .open').click(function() {
+    $('.invoices .menu').hide();
+    $('.invoices .new').show();
+  });
+
+  $('.invoices .new .cancel').click(function() {
+    $('.invoices .menu').show();
+    $('.invoices .new').hide();
   });
 });
 

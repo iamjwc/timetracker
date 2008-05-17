@@ -5,7 +5,11 @@ body {
   background-color: #eeeeee; }
 
 a {
-  color: #2244aa; }
+  color: #2244aa;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
 
 #main {
   background-color: #ffffff;
@@ -146,6 +150,11 @@ tr.odd, li.odd {
       margin-bottom: 1em;
       -webkit-border-bottom-right-radius: 5px;
       -webkit-border-bottom-left-radius: 5px; }
+      #main .customer #main div.more a {
+        font-family: Optima;
+        font-size: 0.9em;
+        font-weight: bold;
+        color: #2244aa; }
   #main .customer #secondary {
     padding: 0;
     width: 35%;
@@ -160,6 +169,11 @@ tr.odd, li.odd {
       margin-bottom: 1em;
       -webkit-border-bottom-right-radius: 5px;
       -webkit-border-bottom-left-radius: 5px; }
+      #main .customer #secondary div.more a {
+        font-family: Optima;
+        font-size: 0.9em;
+        font-weight: bold;
+        color: #2244aa; }
     #main .customer #secondary div.new form {
       margin: 0;
       padding: 0;

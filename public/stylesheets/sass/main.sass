@@ -18,6 +18,10 @@ body
 
 a
   :color= !link_color
+  :text-decoration none
+
+a:hover
+  :text-decoration underline
 
 #main
   :background
@@ -200,6 +204,13 @@ tr.odd, li.odd
         :margin-bottom 1em
         :-webkit-border-bottom-right-radius 5px
         :-webkit-border-bottom-left-radius 5px
+
+        a
+          :font
+            :family= !header_font
+            :size= 0.9em
+            :weight bold
+          :color= !link_color
     
     
     #secondary
@@ -217,6 +228,13 @@ tr.odd, li.odd
         :margin-bottom 1em
         :-webkit-border-bottom-right-radius 5px
         :-webkit-border-bottom-left-radius 5px
+
+        a
+          :font
+            :family= !header_font
+            :size= 0.9em
+            :weight bold
+          :color= !link_color
 
       div.new
         form
