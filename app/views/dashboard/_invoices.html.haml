@@ -12,6 +12,8 @@
   .more 
     - render :layout => "dashboard/submenu" do
       %a.open{:href => "#"} create blank
+      %span &bull;
+      %a{:href => "#"} create from time logs&hellip;
     .new
       - form_for :invoice, :url => customer_invoices_url(customer) do |f|
         %label{:for => "invoice[due_at]"} Due On

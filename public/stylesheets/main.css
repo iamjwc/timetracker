@@ -185,30 +185,31 @@ tr.odd, li.odd {
         font-size: 0.9em;
         font-weight: bold;
         color: #2244aa; }
-    #page .dashboard #secondary div.new form {
+    #page .dashboard #secondary div.new form,     #page .dashboard #secondary div.update form {
       margin: 0;
       padding: 0;
       font-size: 1em; }
-      #page .dashboard #secondary div.new form label {
+      #page .dashboard #secondary div.new form label,       #page .dashboard #secondary div.update form label {
         text-align: left;
         margin: 0;
         padding: 0;
         display: block;
         width: 100%; }
-      #page .dashboard #secondary div.new form input {
+      #page .dashboard #secondary div.new form input,       #page .dashboard #secondary div.update form input {
         margin: 0;
         margin-bottom: 0.5em;
         padding: 0;
         display: block;
         width: 100%; }
-      #page .dashboard #secondary div.new form textarea {
+      #page .dashboard #secondary div.new form textarea,       #page .dashboard #secondary div.update form textarea {
         margin: 0;
         margin-bottom: 0.5em;
         padding: 0;
         width: 100%; }
-      #page .dashboard #secondary div.new form div input {
+      #page .dashboard #secondary div.new form div input,       #page .dashboard #secondary div.update form div input {
         width: auto;
-        display: inline; }
+        display: inline;
+        margin: 0; }
     #page .dashboard #secondary .timeclock .button {
       padding: 1em; }
       #page .dashboard #secondary .timeclock .button a {

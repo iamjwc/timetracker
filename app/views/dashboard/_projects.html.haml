@@ -7,7 +7,6 @@
     - else
       - projects.each do |project|
         %li= link_to project.name, customer_project_url(customer, project)
-  
   .more
     - render :layout => "dashboard/submenu" do
       %a.open{:href => "#"} create

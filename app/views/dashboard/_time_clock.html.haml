@@ -9,11 +9,10 @@
       - time_log.time_bits.each do |time_bit|
         %li= time_bit.description
     .more
-        
-      .new
-        -form_for :time_bit, :url => customer_time_log_time_bits_url(customer, time_log), :method => :put do |f|
-          %label{:for => "time_bit[description]"} Currently working on?
-          = f.text_field :description
-
+      .update
+        -form_for time_log, :url => customer_time_log_url(customer, time_log), :method => :put do |f|
+          %label{:for => "time_log[description]"} Currently working on?
+          = f.text_area :description, {:rows => 3}
+  
           .actions
-            = f.submit "add"
+            = f.submit "update"
