@@ -1,22 +1,24 @@
-- render :layout => "dashboard/subheader", :locals => {:title => "TimeLogs"} do; end
 .timelogs
-  %table
+  %table.striped{:cellpadding => "0", :cellspacing => "0", :border => "0"}
     %thead
       %tr
         %td Description
         %td Date
         %td Time
-    - time_logs.each do |time_log|
-      %tr
-        %td
-          %p= time_log.description
-          %ul
-            - time_log.time_bits.each do |time_bit|
-              %li= time_bit.description
-        %td= time_log.started_at.to_date.to_s(:long_ordinal)
-        %td= time_log.total_time
-    %thead
-      %tr
-        %td Total 
         %td &nbsp;
-        %td= time_logs.inject(0) {|t, i| t += i.total_time }
+    %tbody
+      - time_logs.each do |time_log|
+        %tr
+          %td= time_log.description
+          %td= time_log.started_at.to_date.to_s(:long_ordinal)
+          %td= time_log.total_time.to_s :time
+          %td
+            %input{:type => "checkbox"}
+//    %tfoot
+//      %tr
+//        %td Total 
+//        %td &nbsp;
+//        %td= time_logs.inject(0) {|t, i| t += i.total_time }
+//        %td &nbsp;
+  .more
+    &nbsp;

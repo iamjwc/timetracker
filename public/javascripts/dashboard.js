@@ -1,9 +1,16 @@
-
+/*
 $(document).ready(function() {
   $('ul li:odd').addClass('odd');
   $('ul li:even').addClass('even');
 });
+*/
 
+$(document).ready(function() {
+  $('.striped li:odd').addClass('odd');
+  $('.striped li:even').addClass('even');
+  $('.striped tbody tr:odd').addClass('odd');
+  $('.striped tbody tr:even').addClass('even');
+});
 
 $(document).ready(function() {
   $('.projects .new').hide();
@@ -29,3 +36,10 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $('a#merge_time_logs').click(function() {
+    $('form.merge').submit();
+  });
+});
+
+// $('.timelogs table').find("input[@type$='checkbox']").each(function(){ this.checked = true; });

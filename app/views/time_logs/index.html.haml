@@ -5,10 +5,10 @@
 
 .dashboard
   #main
-    = render :partial => "dashboard/time_logs", :locals => {:customer => @customer, :time_logs => @time_logs}
+    = render :partial => "time_logs", :locals => {:customer => @customer, :time_logs => @time_logs}
   
   #secondary
-    //= render :partial => "dashboard/time_clock", :locals => {:customer => @customer, :time_log => @customer.current_time_log}
+    = render :partial => "actions"
     //= render :partial => "dashboard/invoices",   :locals => {:customer => @customer, :invoices => @customer.invoices}
     //= render :partial => "dashboard/projects",   :locals => {:customer => @customer, :projects => @customer.projects}
 

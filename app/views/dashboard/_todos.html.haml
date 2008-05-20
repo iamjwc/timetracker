@@ -1,6 +1,6 @@
 - render :layout => "dashboard/subheader", :locals => {:title => "ToDos"} do; end
 .todos
-  %ul
+  %ul.striped
     - todos.each do |todo|
       %li
         %span.note= todo.priority.name unless todo.priority.nil?

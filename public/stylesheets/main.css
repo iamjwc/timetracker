@@ -5,24 +5,24 @@ body {
   background-color: #eeeeee; }
 
 a {
-  color: #2244aa;
-  text-decoration: none; }
+  text-decoration: none;
+  color: #2244aa; }
 
 a:hover {
   text-decoration: underline; }
 
 #page {
-  background-color: #ffffff;
   width: 900px;
   margin: 0 auto;
-  padding: 0.2em 1em; }
+  padding: 0.2em 1em;
+  background-color: #ffffff; }
 
 .my_info {
   padding: 1em;
   text-align: center;
-  color: #999;
   font-size: 1.2em;
-  font-family: Delicious , Adobe Garamond Pro; }
+  font-family: Delicious , Adobe Garamond Pro;
+  color: #999; }
   .my_info div {
     display: inline;
     margin: 0 1em; }
@@ -63,50 +63,50 @@ a:hover {
 p#description {
   margin: 0 auto;
   margin-bottom: 1em;
-  background-color: #e1eefc;
   font-size: 1.4em;
-  color: #333333;
   padding: 0.5em 1em;
   border-top-width: 0;
   -webkit-border-bottom-left-radius: 15px;
-  -webkit-border-bottom-right-radius: 15px; }
+  -webkit-border-bottom-right-radius: 15px;
+  background-color: #e1eefc;
+  color: #333333; }
 
-table#invoice {
+table {
   margin: 0;
   padding: 0;
   width: 100%; }
-  table#invoice .hours, table#invoice .rate {
+  table .hours, table .rate {
     text-align: right; }
-  table#invoice thead {
+  table thead {
     font-size: 1.4em;
     background-color: #333;
     color: #FFF; }
-    table#invoice thead td {
+    table thead td {
       margin: 0;
       padding: 0.2em 0.5em;
       background-color: #333; }
-  table#invoice tbody {
+  table tbody {
     font-size: 1.4em;
     background-color: #eee; }
-    table#invoice tbody .hours, table#invoice tbody .rate {
+    table tbody .hours, table tbody .rate {
       color: #888888; }
-    table#invoice tbody td {
+    table tbody td {
       padding: 0.5em; }
-    table#invoice tbody .hours, table#invoice tbody .rate {
+    table tbody .hours, table tbody .rate {
       text-align: right; }
-      table#invoice tbody .hours input,       table#invoice tbody .rate input {
+      table tbody .hours input,       table tbody .rate input {
         width: 3em; }
-    table#invoice tbody textarea {
+    table tbody textarea {
       width: 100%; }
-  table#invoice tfoot {
+  table tfoot {
     background-color: #fff7cf; }
-    table#invoice tfoot td {
+    table tfoot td {
       font-size: 1.4em;
       font-weight: bold;
       padding: 0.5em;
       border-top: 1px solid #d7ae56;
       background-color: #fff7cf; }
-  table#invoice tr#total {
+  table tr#total {
     border: 0; }
 
 tr.even, li.even {

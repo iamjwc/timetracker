@@ -2,7 +2,7 @@
   = link_to "show all&hellip;", customer_invoices_url(customer)
 
 .invoices
-  %ul
+  %ul.striped
     - if invoices.empty?
       %li
         %em No invoices
@@ -11,9 +11,7 @@
         %li= link_to "#{number_to_currency(invoice.total_owed)} for #{invoice.due_at.to_date.to_s(:long_ordinal) rescue nil}", customer_invoice_url(invoice.customer, invoice)
   .more 
     - render :layout => "dashboard/submenu" do
-      %a.open{:href => "#"} create blank
-      %span &bull;
-      %a{:href => "#"} create from time logs&hellip;
+      %a.open{:href => "#"} create
     .new
       - form_for :invoice, :url => customer_invoices_url(customer) do |f|
         %label{:for => "invoice[due_at]"} Due On

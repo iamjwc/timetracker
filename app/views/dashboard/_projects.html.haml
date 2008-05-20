@@ -1,6 +1,6 @@
 - render :layout => "dashboard/subheader", :locals => {:title => "Projects"} do; end
 .projects
-  %ul
+  %ul.striped
     - if projects.empty?
       %li
         %em No projects

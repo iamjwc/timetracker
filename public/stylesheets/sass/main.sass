@@ -11,33 +11,32 @@
 
 body
   :font
-    :size = 62.5%
+    :size 62.5%
     :family = !main_font
   :color = #333
   :background-color = #eee
 
 a
-  :color= !link_color
   :text-decoration none
+  :color= !link_color
 
 a:hover
   :text-decoration underline
 
 #page
-  :background
-    :color = #fff
-  :width = 900px
-  :margin = 0 auto
-  :padding = 0.2em 1em
+  :width 900px
+  :margin 0 auto
+  :padding 0.2em 1em
+  :background-color = #fff
 
 
 .my_info
   :padding 1em
   :text-align center
-  :color #999
   :font
     :size 1.2em
     :family= !my_info_font
+  :color #999
 
   div
     :display inline
@@ -58,7 +57,7 @@ a:hover
 
 #header
   :font
-    :family = !header_font
+    :family= !header_font
     :style italic
   :margin 0
   :margin-top 1em
@@ -66,53 +65,48 @@ a:hover
   :border-bottom 1px solid #333
 
   span
-    :font
-      :size 1.75em
+    :font-size 1.75em
     :color #777
 
   h1
-    :font
-      :size 2.5em
+    :font-size 2.5em
     :margin 0 0.25em
     :padding 0
     :padding-bottom 0
     :display inline-block
   
   h3
-    :font
-      :size 1.75em
+    :font-size 1.75em
     :margin 0 0.25em
-    :padding = 0
+    :padding 0
     :display inline-block
 
 p#description
-  :margin = 0 auto
+  :margin 0 auto
   :margin-bottom 1em
-  :background-color = !description_background
-  :font
-    :size = 1.4em
-  :color = #333
+  :font-size 1.4em
   :padding 0.5em 1em
-  //:width 95%
   :border-top-width 0
   :-webkit-border-bottom-left-radius 15px
   :-webkit-border-bottom-right-radius 15px
+  :background-color= !description_background
+  :color = #333
+
   //:-webkit-border-radius 20px
   //:-webkit-box-shadow 0 5px 5px #333
   //:-webkit-user-modify read-write
 
-
-table#invoice
-  :margin = 0
-  :padding = 0
-  :width = 100%
+//#invoice
+table
+  :margin 0
+  :padding 0
+  :width 100%
 
   .hours, .rate
-    :text-align = right
+    :text-align right
 
   thead
-    :font
-      :size 1.4em
+    :font-size 1.4em
     :background-color #333
     :color #FFF
 
@@ -122,37 +116,37 @@ table#invoice
       :background-color #333
 
   tbody
-    :font-size = 1.4em
+    :font-size 1.4em
     :background-color #eee
 
     .hours, .rate
       :color = #888
 
     td
-      :padding = 0.5em
+      :padding 0.5em
 
     .hours, .rate
-      :text-align = right
+      :text-align right
 
       input
-        :width = 3em
+        :width 3em
 
     textarea
-      :width = 100%
+      :width 100%
 
   tfoot
     :background-color = !total_background
 
     td
       :font
-        :size = 1.4em
-        :weight = bold
-      :padding = 0.5em
+        :size 1.4em
+        :weight bold
+      :padding 0.5em
       :border-top = 1px solid !total_border
       :background-color = !total_background
 
   tr#total
-    :border = 0
+    :border 0
 
 tr.even, li.even
   :background-color = #eee

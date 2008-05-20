@@ -1,0 +1,40 @@
+.timelogs
+  - form_for :time_log, :url => merge_customer_time_logs_url(@customer), :html => { :method => :put, :class => "merge" } do |f|
+    %table.striped{:cellpadding => "0", :cellspacing => "0", :border => "0"}
+      %thead
+        %tr
+          %td &nbsp;
+          %td Description
+          %td Time
+          %td Date
+          %td &nbsp;
+      %tbody
+        - time_logs.each do |time_log|
+          %tr
+            %td
+              = f.check_box time_log.id, :index => "ids"
+              %td= time_log.description
+            %td= time_log.total_time.to_duration_string
+            %td= time_log.started_at.to_date.to_s(:long_ordinal)
+            %td.opts= link_to image_tag('icons/delete.png'), customer_time_log_url(@customer, time_log), { :method => :delete, :class => :delete }
+  .more
+    - render :layout => "dashboard/submenu" do
+      %a#merge_time_logs{:href => "#"} merge selected
+      %a.open{:href => "#"} send to invoice
+    .new
+      - form_for :time_log, :url => customer_time_logs_url(@customer) do |f|
+        %label{:for => "time_log[description]"} Description
+        = f.text_area :description, {:rows => 2}
+        %label{:for => "time_log[hours_spent]"} Time Spent
+        = f.text_field :hours_spent
+        = " : "
+        = f.text_field :minutes_spent
+        %label{:for => "time_log[date]"} Date
+        = date_select(:time_log, :date)
+    
+//    %tfoot
+//      %tr
+//        %td Total 
+//        %td &nbsp;
+//        %td= time_logs.inject(0) {|t, i| t += i.total_time }
+//        %td &nbsp;
