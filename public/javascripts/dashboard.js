@@ -6,10 +6,10 @@ $(document).ready(function() {
 */
 
 $(document).ready(function() {
-  $('.striped li:odd').addClass('odd');
-  $('.striped li:even').addClass('even');
-  $('.striped tbody tr:odd').addClass('odd');
-  $('.striped tbody tr:even').addClass('even');
+  $('ul.striped li:odd').addClass('odd');
+  $('ul.striped li:even').addClass('even');
+  $('table.striped tbody tr:odd').addClass('odd');
+  $('table.striped tbody tr:even').addClass('even');
 });
 
 $(document).ready(function() {

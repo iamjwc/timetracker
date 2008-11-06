@@ -5,7 +5,40 @@
 
 .dashboard
   #main
-    = render :partial => "time_logs", :locals => {:customer => @customer, :time_logs => @time_logs}
+    .grouped_time_logs
+      %table.timelog.striped{:cellpadding => "0", :cellspacing => "0", :border => "0"}
+        %tbody
+          - @grouped_time_logs.each do |date, time_logs|
+            %tr
+              %td.date{:style => "border-bottom: 0.5em solid #fff", :valign => "top"}= date.to_s(:long_ordinal)
+              %td.logs{:style => "border-bottom: 0.5em solid #fff",:valign => "top", :width => "100%"}
+                %ul
+                  - time_logs.each do |time_log|
+                    %li
+                      //%span.note= date.to_s(:long_ordinal)
+                      .options
+                        %input{:type => "checkbox"}
+                        %a{:href => "#"} Edit
+                        %a{:href => "#"} Delete
+                      %span.note= time_log.total_time.to_duration_string
+                      = time_log.description
+                      %br{:style => "clear:left"}
+      .more
+        - render :layout => "dashboard/submenu" do
+          %a#merge_time_logs{:href => "#"} merge selected
+          %a.open{:href => "#"} send to invoice
+        .new
+          - form_for :time_log, :url => customer_time_logs_url(@customer) do |f|
+            %label{:for => "time_log[description]"} Description
+            = f.text_area :description, {:rows => 2}
+            %label{:for => "time_log[hours_spent]"} Time Spent
+            = f.text_field :hours_spent
+            = " : "
+            = f.text_field :minutes_spent
+            %label{:for => "time_log[date]"} Date
+            = date_select(:time_log, :date)
+
+    //= render :partial => "time_logs", :locals => {:customer => @customer, :time_logs => @time_logs}
   
   #secondary
     = render :partial => "actions"

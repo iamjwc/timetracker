@@ -1,7 +1,8 @@
 class TimeLogsController < ApplicationController
   def index
     @customer = Customer.find params[:customer_id]
-    @time_logs = @customer.time_logs
+    @time_logs = @customer.time_logs.sort_by {|t| t.started_at }
+    @grouped_time_logs = @time_logs.group_by {|t| t.started_at.to_date }
   end
 
   def update

@@ -1,14 +1,15 @@
 
 .my_info.top
   .name Justin W. Camerer
-  .address 1401 N. Second Street &bull; Apartment F &bull; Edwardsville, IL 62025
+  //.address 1401 N. Second Street &bull; Apartment F &bull; Edwardsville, IL 62025
+  .address 106 West 13th Street &bull; Apartment 28 &bull; New York, NY 10011
   .contact 618.401.8890 &bull; iamjwc@gmail.com
 
 #header
   %span invoice for
   %h1= @customer.name
   - unless @invoice.due_at.nil?
-    %span due by
+    %span issued on
     %h3= @invoice.due_at.to_date.to_s(:long_ordinal)
 %p#description= @invoice.description
 

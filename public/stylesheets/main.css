@@ -71,42 +71,42 @@ p#description {
   background-color: #e1eefc;
   color: #333333; }
 
-table {
+table#invoice {
   margin: 0;
   padding: 0;
   width: 100%; }
-  table .hours, table .rate {
+  table#invoice .hours, table#invoice .rate {
     text-align: right; }
-  table thead {
+  table#invoice thead {
     font-size: 1.4em;
     background-color: #333;
     color: #FFF; }
-    table thead td {
+    table#invoice thead td {
       margin: 0;
       padding: 0.2em 0.5em;
       background-color: #333; }
-  table tbody {
+  table#invoice tbody {
     font-size: 1.4em;
     background-color: #eee; }
-    table tbody .hours, table tbody .rate {
+    table#invoice tbody .hours, table#invoice tbody .rate {
       color: #888888; }
-    table tbody td {
+    table#invoice tbody td {
       padding: 0.5em; }
-    table tbody .hours, table tbody .rate {
+    table#invoice tbody .hours, table#invoice tbody .rate {
       text-align: right; }
-      table tbody .hours input,       table tbody .rate input {
+      table#invoice tbody .hours input,       table#invoice tbody .rate input {
         width: 3em; }
-    table tbody textarea {
+    table#invoice tbody textarea {
       width: 100%; }
-  table tfoot {
+  table#invoice tfoot {
     background-color: #fff7cf; }
-    table tfoot td {
+    table#invoice tfoot td {
       font-size: 1.4em;
       font-weight: bold;
       padding: 0.5em;
       border-top: 1px solid #d7ae56;
       background-color: #fff7cf; }
-  table tr#total {
+  table#invoice tr#total {
     border: 0; }
 
 tr.even, li.even {
@@ -150,6 +150,26 @@ tr.odd, li.odd {
     padding: 0;
     width: 64%;
     float: left; }
+    #page .dashboard #main .grouped_time_logs .timelog td {
+      margin: 0.5em; }
+    #page .dashboard #main .grouped_time_logs .timelog .date {
+      background-color: #e1eefc;
+      color: #fff;
+      width: 20%;
+      font-size: 1.4em;
+      padding: 0.25em 0.25em;
+      text-align: right; }
+    #page .dashboard #main .grouped_time_logs .timelog li .date2 {
+      float: right; }
+    #page .dashboard #main .grouped_time_logs .timelog .options {
+      font-size: 0.75em;
+      padding: 0.25em;
+      -webkit-border-radius: 7px;
+      background-color: #333;
+      float: right;
+      font-weight: bold; }
+      #page .dashboard #main .grouped_time_logs .timelog .options a {
+        color: #fff; }
     #page .dashboard #main .todos {
       margin-bottom: 1em; }
     #page .dashboard #main div.more {
